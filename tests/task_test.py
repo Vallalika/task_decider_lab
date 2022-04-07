@@ -47,3 +47,17 @@ class TaskTest(unittest.TestCase):
         self.assertEqual("Clean windows", get_preferred_option(self.clean_windows, self.do_ironing))
         self.assertEqual("Clean windows", get_preferred_option(self.do_ironing, self.clean_windows))
     
+    @unittest.skip
+    def test_ironing_over_clothes(self):
+        self.assertEqual("Do ironing", get_preferred_option(self.do_ironing, self.wash_clothes))
+        self.assertEqual("Do ironing", get_preferred_option(self.wash_clothes, self.do_ironing))
+
+    @unittest.skip
+    def test_ironing_over_dishes(self):
+        self.assertEqual("Wash the dishes", get_preferred_option(self.do_ironing, self.wash_dishes))
+        self.assertEqual("Wash the dishes", get_preferred_option(self.wash_dishes, self.do_ironing))
+    
+    @unittest.skip
+    def test_clothes_over_dinner(self):
+        self.assertEqual("Wash clothes", get_preferred_option(self.wash_clothes, self.cook_dinner))
+        self.assertEqual("Wash clothes", get_preferred_option(self.cook_dinner, self.wash_clothes))
